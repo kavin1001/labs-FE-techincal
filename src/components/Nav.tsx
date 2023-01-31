@@ -1,10 +1,7 @@
 const Nav = () => (
-  <div style={{
-    width: '100%',
-    padding: '0 1rem',
-    borderBottom: '1px solid rgba(0, 0, 0, 0.1)',
-  }}>
-    <h2>Penn Course Cart</h2>
+  
+  <div className="border-b-2 justify-content-left">
+    <h1 className="text-2xl font-bold py-6 px-2">Penn Course Cart</h1>
   </div>
 )
 

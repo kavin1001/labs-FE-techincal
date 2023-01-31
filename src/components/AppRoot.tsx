@@ -10,6 +10,8 @@ export default function AppRoot() {
     const [searchQuery, setSearchQuery] = useState<string>('');
     const [cart, setCart] = useState<any[]>([]);
     const [course, setCourse] = useState<number>();
+    const [tags, setTags] = useState<string[]>([]);
+
 
 
 
@@ -36,16 +38,18 @@ export default function AppRoot() {
 
 
     const appContextValue = {
+        cart,
         chooseCourse,
         updateSearchQuery,
         removeItemFromCart,
-        addItemToCart
+        addItemToCart,
+        tags
     }
     
     return (
         <AppContext.Provider value={appContextValue}>
             <Nav />
-            <Courses />
+            <Courses searchString={searchQuery}/>
         </AppContext.Provider>
     );
 }
