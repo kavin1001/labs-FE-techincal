@@ -48,7 +48,7 @@ export default function AppRoot() {
     
     return (
         <AppContext.Provider value={appContextValue}>
-            <Nav />
+            <Nav updateSearchQuery={updateSearchQuery} />
             <Courses searchString={searchQuery}/>
         </AppContext.Provider>
     );
