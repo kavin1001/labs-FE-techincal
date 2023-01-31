@@ -1,23 +1,13 @@
 import './App.css';
 
-import Nav from './components/Nav';
-import Courses from './components/Courses';
-import Cart from './components/Cart';
+import AppRoot from './components/AppRoot';
+import { Route, Routes } from 'react-router-dom';
+
 
 function App() {
-  return (
-    <>
-      <Nav />
-      <div style={{
-        width: '100%',
-        boxSizing: 'border-box',
-        padding: '0 calc(1rem + 10%)',
-      }}>
-        <Courses />
-        <Cart />
-      </div>
-    </>
-  );
+  return <Routes>
+    <Route path='/' element={<AppRoot />}/>
+  </Routes>
 }
 
 export default App;

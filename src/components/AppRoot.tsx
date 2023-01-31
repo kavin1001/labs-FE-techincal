@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import Courses from './Courses';
 import Nav from './Nav';
 
 export const AppContext = React.createContext<null|any>(null);
@@ -43,7 +44,8 @@ export default function AppRoot() {
     
     return (
         <AppContext.Provider value={appContextValue}>
-            <Nav/>
+            <Nav />
+            <Courses />
         </AppContext.Provider>
     );
 }
