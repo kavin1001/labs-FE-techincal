@@ -39,8 +39,8 @@ export default function Courses({searchString}:{searchString: string}) {
   let filteredCourses = displayedCourses.filter(value => filteredCoursesByPrereq.includes(value));
 
   return (
-    <div className='mt-12 h-full w-full items-center justify-center'>
-      <div className='grid gap-4 grid-cols-3'>
+    <div className='mt-12 h-full w-fit items-center justify-center'>
+      <div className='grid gap-4 grid-cols-2'>
         {filteredCourses.map((c) => (
           <Course 
             key={`${c.dept}-${c.number}`}

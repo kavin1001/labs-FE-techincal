@@ -22,7 +22,7 @@ export default function Course(props: CourseType) {
     const {dept, number, title, description, prereqs} = props;
 
     // const {chooseCourse, addItemToCart, cart, allCoursePrereqs} = useContext(AppContext);
-    const {chooseCourse, addItemToCart, cart} = useContext(AppContext);
+    const {chooseCourse, addItemToCart, cart, showCart} = useContext(AppContext);
     const [inCart, setInCart] = useState(false);
 
     // TODO: Change this comment - Changes the setInCart boolean when the cart changes to check how to color the button
@@ -38,29 +38,41 @@ export default function Course(props: CourseType) {
     }
 
     return (
-        <div className='drop-shadow-2xl border-2 p-5 w-full'>
-            <div className=''>
-                <span className='font-bold text-slate-400'>{dept + ' ' + number}</span>
-                <h3 className='text-2xl font-bold' >{title}</h3>
-                {/* <div className='course-prereq-row'>
-                    {coursePrereqs.length !== 0 && <span className='span-bold'>Prereqs : &nbsp;</span>}
-                    {prereqs && coursePrereqs.map((str:string) => {
-                        let color = 'grey';
-                        if(allCoursePrereqs[str] !== undefined) {
-                            color=allCoursePrereqs[str]
-                        }
-                        return <span className='course-prereq-span' style={{backgroundColor: color}}>{str}</span>
-                    })}
-                </div> */}
-            </div>
-            <div className=''>{description}</div>
-            <div className='w-full mb-5 flex justify-center items-center mt-3'>
-                <button className='btn btn-yellow' onClick={() => chooseCourse(number)}>Know More</button>
-                <button className={inCart ? 'btn-greyed' : 'btn btn-add'} onClick={()=>{
-                    addItemToCart(number)
-                    setInCart(true)
-                    window.scrollTo(0, 0)
-                }}>{inCart ? 'In Cart' :' Add to Cart'}</button>
+        <div className=''>
+            <div className='drop-shadow-2xl border-2 p-5 w-full h-full'>
+                <div className='flex flex-col'>
+                    <span className='font-bold text-slate-400'>{dept + ' ' + number}</span>
+                    <button className='w-fit h-6 text-xl font-bold text-green-600 text-ellipsis overflow-hidden mb-6' 
+                    onClick={() => chooseCourse(number)}>{title}</button>
+                    {/* <div className='course-prereq-row'>
+                        {coursePrereqs.length !== 0 && <span className='span-bold'>Prereqs : &nbsp;</span>}
+                        {prereqs && coursePrereqs.map((str:string) => {
+                            let color = 'grey';
+                            if(allCoursePrereqs[str] !== undefined) {
+                                color=allCoursePrereqs[str]
+                            }
+                            return <span className='course-prereq-span' style={{backgroundColor: color}}>{str}</span>
+                        })}
+                    </div> */}
+                </div>
+                <div className='h-24 text-ellipsis overflow-hidden ...'>
+                    <p className='text-sm italic h-fit'>{description}</p>
+                </div>
+                <div className='w-full mb-5 flex self-end justify-center items-center mt-3'>
+                    <button className={inCart ? 'inline-block px-6 py-2.5 bg-gray-200 text-gray-700 font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-300 hover:shadow-lg focus:bg-gray-300 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-400 active:shadow-lg transition duration-150 ease-in-out cursor-not-allowed' : 'inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out'} 
+                    onClick={()=>{
+                        console.log('add to cart')
+                        addItemToCart(number)
+                        setInCart(true)
+                        showCart(true);
+                        console.log(cart)
+                        // Timeout to change the color back to blue
+                        setTimeout(() => {
+                                showCart(false);
+                            }, 2500);
+                        }}>
+                        {inCart ? 'In Cart' :' Add to Cart'}</button>
+                </div>
             </div>
         </div>
     )
