@@ -1,6 +1,3 @@
-import React, { useContext } from 'react'
-import { AppContext } from './AppRoot';
-
 export default function CourseTile({course}: {course: any}) {
 
     //Component to display a course in the cart
