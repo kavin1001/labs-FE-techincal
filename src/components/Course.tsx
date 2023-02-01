@@ -17,13 +17,11 @@ export default function Course(props: CourseType) {
     //Handles all functionality of a single course component
 
     // Passing in the course information as props into the component
-    const {dept, number, title, description, prereqs} = props;
+    const {dept, number, title, description} = props;
 
-    // const {chooseCourse, addItemToCart, cart, allCoursePrereqs} = useContext(AppContext);
-    const {chooseCourse, addItemToCart, cart, showCart, showPopup, setCourse, allCoursePrereqs} = useContext(AppContext);
+    const {addItemToCart, cart, showCart, showPopup, setCourse} = useContext(AppContext);
     const [inCart, setInCart] = useState(false);
 
-    // TODO: Change this comment - Changes the setInCart boolean when the cart changes to check how to color the button
     useEffect(() => {
         setInCart(cart.find((c:any) => c.number === number))
     }, [cart])
@@ -32,14 +30,6 @@ export default function Course(props: CourseType) {
         setCourse(number) 
         showPopup(true)
         console.log('showing course info')
-    }
-
-    let coursePrereqs: string[] = []
-
-    //Gets the course prereqs - I realized that course names are about 7-11 in length
-    if (prereqs !== undefined) {
-        coursePrereqs = prereqs.filter((str) => str.length <= 12)
-        console.log(prereqs)
     }
 
     return (
@@ -64,7 +54,7 @@ export default function Course(props: CourseType) {
                         // Timeout to change the color back to blue
                         setTimeout(() => {
                                 showCart(false);
-                            }, 2500);
+                            }, 2000);
                         }}>
                         {inCart ? 'In Cart' :' Add to Cart'}</button>
                 </div>

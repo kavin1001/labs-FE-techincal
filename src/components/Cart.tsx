@@ -1,4 +1,5 @@
 import { Fragment, useContext, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import { Dialog, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { AppContext } from './AppRoot';
@@ -6,7 +7,13 @@ import CourseTile from './CourseTile';
 
 
 export default function Cart({courses}: {courses: any[]}) {
-  const {cart, openCart, showCart, removeItemFromCart} = useContext(AppContext);
+  const {openCart, showCart, cart} = useContext(AppContext);
+  const navigate = useNavigate()
+
+
+  function handleClick() {
+    navigate('/checkout', {state: {cart}})
+  }
 
   return (
     <Transition.Root show={openCart} as={Fragment}>
@@ -68,16 +75,16 @@ export default function Cart({courses}: {courses: any[]}) {
                     </div>
 
                     <div className="border-t border-gray-200 py-6 px-4 sm:px-6">
-                      <div className="mt-6">
+                      <div className="flex justify-center">
                       {courses.length === 0 && <p className='text-center text-lg font-bold'>Your cart is empty!</p>}
                       {courses.length > 7 && <p className='text-center text-lg font-bold'>Too many courses in cart!</p>}
                       {courses.length !== 0 && courses.length < 8 &&
-                        <a
-                        href="/checkout"
+                        <button
                         className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
+                        onClick={handleClick}
                         >
                         Checkout
-                        </a>
+                        </button>
                       }
                       </div>
                       <div className="mt-6 flex justify-center text-center text-sm text-gray-500">

@@ -32,7 +32,7 @@ export default function SemSelector() {
         <>
           <Listbox.Label className="block text-left text-sm font-medium text-gray-700">Semester</Listbox.Label>
           <div className="relative mt-1 mb-12">
-            <Listbox.Button className="relative w-48 cursor-default rounded-md border border-gray-300 bg-white py-2 pl-3 pr-10 text-left shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500 sm:text-sm">
+            <Listbox.Button className="relative w-48 cursor-default rounded-md border border-gray-300 bg-white py-2 pl-3 pr-10 text-left shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 sm:text-sm">
               <span className="flex items-center">
                 <span className="ml-3 block truncate">{selected.id + " " + selected.name}</span>
               </span>
@@ -54,7 +54,7 @@ export default function SemSelector() {
                     key={year.key}
                     className={({ active }) =>
                       classNames(
-                        active ? 'text-white bg-indigo-600' : 'text-gray-900',
+                        active ? 'text-white bg-blue-600' : 'text-gray-900',
                         'relative cursor-default select-none py-2 pl-3 pr-9'
                       )
                     }
@@ -73,7 +73,7 @@ export default function SemSelector() {
                         {selected ? (
                           <span
                             className={classNames(
-                              active ? 'text-white' : 'text-indigo-600',
+                              active ? 'text-white' : 'text-blue-600',
                               'absolute inset-y-0 right-0 flex items-center pr-4'
                             )}
                           >

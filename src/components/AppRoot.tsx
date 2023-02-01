@@ -22,11 +22,6 @@ export default function AppRoot() {
 
     const selectedCourse = courses.find(c => c.number === course)
 
-
-    interface JSONObject {
-        [x: string]: string;
-    }
-
     // Functions to update the states
 
     function chooseCourse(course: number) {
@@ -86,6 +81,7 @@ export default function AppRoot() {
         setYear,
         setDifficulty,
         difficulty
+    
     }
     
     return (
