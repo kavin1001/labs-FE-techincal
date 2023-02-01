@@ -5,15 +5,15 @@ export default function Reciept() {
 
   //The checkout page that gets displayed at the /checkout endpoint
 
-  //Using hooks to navigate away from this page, useLocation helps me pass data between pages at different routes
+  // Using hooks to navigate away from this page, useLocation helps me pass data between pages at different routes
   const location = useLocation();
   const courses = location.state['cart'];
 
   return (
     <div className='flex flex-col justify-center'>
       <div className=''>
-        <h1 className='text-center font-bold text-3xl py-12'>Thank you!</h1>
-        <p className='text-center font-bold'>Here are the courses you have signed up for:</p>
+        <h1 className='text-center font-bold text-3xl py-12'>Success!</h1>
+        <p className='text-center font-bold underline underline-offset-4'>You have signed up for the following courses:</p>
       </div>
       <div className=' p-12 mx-auto'>{courses.map((c:any) => {
         return <CheckoutTile course={c}/>

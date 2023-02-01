@@ -43,15 +43,15 @@ export default function InfoTable({course}: {course:any}) {
             <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{course['cross-listed'] ? course['cross-listed'].join(" ") : "None"}</dd>
           </div>
           <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-            <dt className="text-sm font-medium text-gray-500">Course Quality (out of 4)</dt>
+            <dt className="text-sm font-medium text-gray-500">Course Quality</dt>
             <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{courseQuality ? courseQuality : message}</dd>
           </div>
           <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-            <dt className="text-sm font-medium text-gray-500">Difficulty (out of 4)</dt>
+            <dt className="text-sm font-medium text-gray-500">Difficulty</dt>
             <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0"> {difficulty ? difficulty : message}</dd>
           </div>
           <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-            <dt className="text-sm font-medium text-gray-500">Work Required (out of 4)</dt>
+            <dt className="text-sm font-medium text-gray-500">Work Required </dt>
             <dd className="mt-1 text-sm text-gray-900 sm:col-span-2 sm:mt-0">{work ? work : message}</dd>
           </div>
           <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">

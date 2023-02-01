@@ -2,7 +2,7 @@ import { useContext, useEffect } from 'react';
 import courses from '../data/courses.json'
 import { AppContext } from './AppRoot';
 import Course from './Course';
-import DifficultyFilter from './DifficultFilter';
+import DifficultyFilter from './DifficultyFilter';
 import SemSelector from './SemSelector';
 
 export default function Courses({searchString}:{searchString: string}) {
