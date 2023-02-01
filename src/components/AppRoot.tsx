@@ -62,7 +62,6 @@ export default function AppRoot() {
     }
 
 
-
     const appContextValue = {
         cart,
         showCart,

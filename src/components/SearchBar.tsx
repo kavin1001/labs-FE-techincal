@@ -2,8 +2,8 @@ import React from 'react'
 
 export default function Search({updateSearchQuery}:{updateSearchQuery: (newSearchString:string) => any}) {
 
-    //Represents search/filter area, Handles searchbar functionality
-    //NOT responsible for filtering results, Courses.tsx does that
+    // Represents search/filter area, Handles searchbar functionality
+    // NOT responsible for filtering results, Courses.tsx does that
 
     function handleChange(event: React.FormEvent<HTMLInputElement>) {
         updateSearchQuery(event.currentTarget.value)
