@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { AppContext } from "./AppRoot";
 
 export default function InfoTable({course}: {course:any}) {
 
@@ -7,22 +8,28 @@ export default function InfoTable({course}: {course:any}) {
   const [difficulty, setDifficulty] = useState(0);
   const [work, setWork] = useState(0);
 
+  const {year, semester} = useContext(AppContext);
+
+  const url = `/api/base/${year+semester}/courses/${course.dept}-${course.number}/`;
+
+
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(`/api/base/2022A/courses/${course.dept}-${course.number}/`);
+      const response = await fetch(`/api/base/${year + semester}/courses/${course.dept}-${course.number}/`);
       if(!response.ok) setMessage("Information not available for the current semester");
       const json = await response.json();
       setDifficulty(json.difficulty);
       setWork(json.work_required);
       setCourseQuality(json.course_quality)
+      console.log(url);
     };
     fetchData();
-  }, [course]);
+  }, [course, semester, url, year]);
 
   return (
     <div className="overflow-hidden bg-white shadow sm:rounded-lg">
       <div className="px-4 py-5 sm:px-6">
-        <h3 className="text-lg font-medium leading-6 text-gray-900">{course.dept + ' ' + course.number}</h3>
+        <h3 className="text-lg font-medium leading-6 text-gray-900">{course.dept + ' ' + course.number + " : " + year + semester}</h3>
         <p className="mt-1 max-w-2xl text-sm text-gray-500">{course.title}</p>
       </div>
       <div className="border-t border-gray-200">

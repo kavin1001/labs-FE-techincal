@@ -16,7 +16,9 @@ export default function AppRoot() {
     const [openCart, setOpenCart] = useState<boolean>(false);
     const [openPopup, setOpenPopup] = useState<boolean>(false);
     const [course, setCourse] = useState<number>();
-    const [tags, setTags] = useState<string[]>([]);
+    const [year, setYear] = useState<string>('2020');
+    const [semester, setSemester] = useState<string>('C');
+    const [difficulty, setDifficulty] = useState<number>(100);
 
     const selectedCourse = courses.find(c => c.number === course)
 
@@ -24,24 +26,6 @@ export default function AppRoot() {
     interface JSONObject {
         [x: string]: string;
     }
-
-    //json file to color the courses
-    const allCoursePrereqs : JSONObject = {
-        'CIS 120': '#34568b',
-        'CIS 160': '#ff6f61',
-        'CIS 240': '#6b5b95',
-        'CIS 110': '#926aa6',
-        'ESE 112': '#45b8ac',
-        'CIS 262': '#d2386c',
-        'CIS 320': '#efc050',
-        'MATH 312/314': '#5b5ea6',
-        'CIS 400': '#9b2335',
-        'ESE 301': '#45b8ac',
-        'MATH 104': '#98b4d4',
-        'CIS 121': '#ffa500',
-        'PHYS 151': '#dc793e'
-    }
-
 
     // Functions to update the states
 
@@ -74,6 +58,14 @@ export default function AppRoot() {
         setOpenPopup(state);
     }
 
+    function updateSemester(sem: string) {
+        if(sem === "Spring") {
+            setSemester("A");
+        } else {
+            setSemester("C");
+        }
+    }
+
 
 
     const appContextValue = {
@@ -84,12 +76,16 @@ export default function AppRoot() {
         updateSearchQuery,
         removeItemFromCart,
         addItemToCart,
-        tags,
         openCart,
         openPopup,
         setCourse,
         selectedCourse,
-        allCoursePrereqs
+        updateSemester,
+        semester,
+        year,
+        setYear,
+        setDifficulty,
+        difficulty
     }
     
     return (

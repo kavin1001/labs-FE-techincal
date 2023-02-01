@@ -47,7 +47,7 @@ export default function Course(props: CourseType) {
             <div className='shadow-sm hover:shadow-2xl rounded-xl border-2 p-5 w-full h-full'>
                 <div className='flex flex-col'>
                     <span className='font-bold text-slate-400'>{dept + ' ' + number}</span>
-                    <button className='w-fit h-8 text-xs md:text-xl font-bold text-green-600 text-ellipsis overflow-hidden mb-6 hover:underline hover:text-green-700' 
+                    <button className='w-fit h-8 text-xs md:text-lg font-bold text-green-600 text-ellipsis overflow-hidden mb-6 hover:underline hover:text-green-700' 
                     onClick={showCourseInfo}>{title}</button>
                 </div>
                 <div className='h-24 text-ellipsis overflow-hidden ...'>
