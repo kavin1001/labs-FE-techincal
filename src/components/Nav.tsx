@@ -5,7 +5,7 @@ export default function Nav({updateSearchQuery}:{updateSearchQuery: (newSearchSt
   return (
     <div className="border-b-2 justify-content-left">
       <div className="flex justify-between items-center">
-        <h1 className="text-2xl font-bold py-6 px-2">Penn Course Cart</h1>
+        <h1 className="text-2xl font-bold py-6 px-4">Penn Course Cart</h1>
         <div className="flex items-center px-2">
           <Search updateSearchQuery={updateSearchQuery} />
           <ShowCartButton />

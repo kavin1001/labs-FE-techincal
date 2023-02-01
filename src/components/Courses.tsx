@@ -39,7 +39,7 @@ export default function Courses({searchString}:{searchString: string}) {
   let filteredCourses = displayedCourses.filter(value => filteredCoursesByPrereq.includes(value));
 
   return (
-    <div className='mt-12 h-full w-fit items-center justify-center'>
+    <div className='my-12 h-full w-fit items-center justify-center'>
       <div className='grid gap-4 grid-cols-2'>
         {filteredCourses.map((c) => (
           <Course 

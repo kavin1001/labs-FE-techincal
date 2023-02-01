@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import Cart from './Cart';
-import Example from './Cart';
 import Courses from './Courses';
 import Nav from './Nav';
 import courses from '../data/courses.json'
+import Popup from './Popup';
 
 
 export const AppContext = React.createContext<null|any>(null);
@@ -14,9 +14,11 @@ export default function AppRoot() {
     const [searchQuery, setSearchQuery] = useState<string>('');
     const [cart, setCart] = useState<any[]>([]);
     const [openCart, setOpenCart] = useState<boolean>(false);
+    const [openPopup, setOpenPopup] = useState<boolean>(false);
     const [course, setCourse] = useState<number>();
     const [tags, setTags] = useState<string[]>([]);
 
+    const selectedCourse = courses.find(c => c.number === course)
 
 
 
@@ -47,17 +49,25 @@ export default function AppRoot() {
         setOpenCart(state);
     }
 
+    function showPopup(state: boolean) {
+        setOpenPopup(state);
+    }
+
 
 
     const appContextValue = {
         cart,
         showCart,
+        showPopup,
         chooseCourse,
         updateSearchQuery,
         removeItemFromCart,
         addItemToCart,
         tags,
         openCart,
+        openPopup,
+        setCourse,
+        selectedCourse
     }
     
     return (
@@ -65,6 +75,7 @@ export default function AppRoot() {
             <Nav updateSearchQuery={updateSearchQuery} />
             <Cart courses={cart} />
             <Courses searchString={searchQuery}/>
+            {selectedCourse && <Popup course={selectedCourse}/>}
         </AppContext.Provider>
     );
 }
