@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import courses from '../data/courses.json'
 import { AppContext } from './AppRoot';
 import Course from './Course';
+import FilterButton from './FilterButton';
 
 export default function Courses({searchString}:{searchString: string}) {
 
@@ -39,18 +40,21 @@ export default function Courses({searchString}:{searchString: string}) {
   let filteredCourses = displayedCourses.filter(value => filteredCoursesByPrereq.includes(value));
 
   return (
-    <div className='my-12 h-full w-fit items-center justify-center'>
-      <div className='grid gap-4 grid-cols-2'>
-        {filteredCourses.map((c) => (
-          <Course 
-            key={`${c.dept}-${c.number}`}
-            dept={c.dept}
-            number={c.number}
-            title={c.title}
-            description={c.description}
-            // prereqs={c.prereqs}
-          />
-        ))}
+    <div>
+      <FilterButton/>
+      <div className='mx-auto my-12 h-full w-5/6 items-center justify-between'>
+        <div className='grid gap-4 grid-cols-2'>
+          {filteredCourses.map((c) => (
+            <Course 
+              key={`${c.dept}-${c.number}`}
+              dept={c.dept}
+              number={c.number}
+              title={c.title}
+              description={c.description}
+              // prereqs={c.prereqs}
+            />
+          ))}
+        </div>
       </div>
     </div>
   )

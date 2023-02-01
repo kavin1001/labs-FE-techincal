@@ -21,6 +21,27 @@ export default function AppRoot() {
     const selectedCourse = courses.find(c => c.number === course)
 
 
+    interface JSONObject {
+        [x: string]: string;
+    }
+
+    //json file to color the courses
+    const allCoursePrereqs : JSONObject = {
+        'CIS 120': '#34568b',
+        'CIS 160': '#ff6f61',
+        'CIS 240': '#6b5b95',
+        'CIS 110': '#926aa6',
+        'ESE 112': '#45b8ac',
+        'CIS 262': '#d2386c',
+        'CIS 320': '#efc050',
+        'MATH 312/314': '#5b5ea6',
+        'CIS 400': '#9b2335',
+        'ESE 301': '#45b8ac',
+        'MATH 104': '#98b4d4',
+        'CIS 121': '#ffa500',
+        'PHYS 151': '#dc793e'
+    }
+
 
     // Functions to update the states
 
@@ -67,7 +88,8 @@ export default function AppRoot() {
         openCart,
         openPopup,
         setCourse,
-        selectedCourse
+        selectedCourse,
+        allCoursePrereqs
     }
     
     return (
