@@ -3,6 +3,8 @@ import { Listbox, Transition } from '@headlessui/react'
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
 import { AppContext } from './AppRoot';
 
+// Same as DifficultyFilter.tsx
+
 const years = [
     { id: "Fall", name: '2020', key: 0 },
     { id: "Spring", name: '2020', key: 1 },

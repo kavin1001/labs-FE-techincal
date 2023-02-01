@@ -3,7 +3,7 @@ import { Listbox, Transition } from '@headlessui/react'
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
 import { AppContext } from './AppRoot';
 
-const years = [
+const levels = [
     { id: "100", name: '>= 100', key: 0 },
     { id: "200", name: '>=200', key: 1 },
     { id: "300", name: '>=300', key: 2 },
@@ -16,7 +16,7 @@ function classNames(...classes: string[]) {
 }
 
 export default function DifficultyFilter() {
-  const [selected, setSelected] = useState(years[0])
+  const [selected, setSelected] = useState(levels[0])
 
   const {setDifficulty} = useContext(AppContext);
 
@@ -47,16 +47,16 @@ export default function DifficultyFilter() {
               leaveTo="opacity-0"
             >
               <Listbox.Options className="absolute z-10 mt-1 max-h-56 w-48 overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-                {years.map((year) => (
+                {levels.map((level) => (
                   <Listbox.Option
-                    key={year.key}
+                    key={level.key}
                     className={({ active }) =>
                       classNames(
                         active ? 'text-white bg-blue-600' : 'text-gray-900',
                         'relative cursor-default select-none py-2 pl-3 pr-9'
                       )
                     }
-                    value={year}
+                    value={level}
                   >
                     {({ selected, active }) => (
                       <>
@@ -64,7 +64,7 @@ export default function DifficultyFilter() {
                           <span
                             className={classNames(selected ? 'font-semibold' : 'font-normal', 'ml-3 block truncate')}
                           >
-                            {year.name}
+                            {level.name}
                           </span>
                         </div>
 

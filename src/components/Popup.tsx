@@ -10,6 +10,7 @@ const {openPopup, showPopup, addItemToCart, showCart, cart} = useContext(AppCont
 
   const [inCart, setInCart] = useState(false);
 
+  // Function to add the course to the cart from the popup
   function addToCart() {
     showPopup(false)
     addItemToCart(course.number)
@@ -20,11 +21,12 @@ const {openPopup, showPopup, addItemToCart, showCart, cart} = useContext(AppCont
     }, 2500);
   }
 
-    // TODO: Change this comment
+  // The use effect to update the buttons when the cart changes from the popup
     useEffect(() => {
         setInCart(cart.find((c:any) => c.number === course.number))
     }, [cart, course.number])
 
+  // Transition elements for the popup are the as the cart component
   return (
     <Transition.Root show={openPopup} as={Fragment}>
       <Dialog as="div" className="relative z-10" initialFocus={cancelButtonRef} onClose={showPopup}>

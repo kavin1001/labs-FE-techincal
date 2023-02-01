@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AppContext } from "./AppRoot";
 
+// Button to show the cart
 export default function ShowCartButton() {
     const {showCart, openCart} = useContext(AppContext);
 
@@ -16,4 +17,4 @@ export default function ShowCartButton() {
             </div>
         </div>
     )
-    }
+}

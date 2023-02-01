@@ -14,18 +14,18 @@ export interface CourseType {
 
 export default function Course(props: CourseType) {
 
-    //Handles all functionality of a single course component
-
-    // Passing in the course information as props into the component
+    // Passing in the course information
     const {dept, number, title, description} = props;
 
     const {addItemToCart, cart, showCart, showPopup, setCourse} = useContext(AppContext);
     const [inCart, setInCart] = useState(false);
 
+    // Evertime the cart changes, updates which buttons to grey out
     useEffect(() => {
         setInCart(cart.find((c:any) => c.number === number))
     }, [cart])
 
+    // Function to open the popup and show the course information
     function showCourseInfo() {
         setCourse(number) 
         showPopup(true)

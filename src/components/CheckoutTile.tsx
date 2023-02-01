@@ -1,6 +1,6 @@
 export default function CourseTile({course}: {course: any}) {
 
-    //Component to display a course in the cart
+    // The course tile that we see in the checkout page
     const {title, number, dept} = course
 
     return (

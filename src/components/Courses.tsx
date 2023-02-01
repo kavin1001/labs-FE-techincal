@@ -7,22 +7,22 @@ import SemSelector from './SemSelector';
 
 export default function Courses({searchString}:{searchString: string}) {
 
-  //Stores all functionality for the the list of all courses, .i.e the course grid
+  // The global difficulty state that is set in the DifficultyFilter component
   const {difficulty} = useContext(AppContext);
 
-  //Initially, show all courses
+  // Show all courses
   useEffect(() => {
     filteredCourses = courses;
   }, [])
 
 
-  //Filter results based on search bar
+  // Displayed courses is updated based on the search string such that the conditions are met
   const displayedCourses = courses.filter((c) => c.title.toLowerCase().indexOf(searchString.toLowerCase()) !== -1 || 
     c.number.toString().indexOf(searchString) !== -1 ||
     c.description.indexOf(searchString) !== -1
   )
 
-  //Filter results based on prereq selected
+  // Same logic as before but by course level or difficulty
   const filteredCoursesByDiff = courses.filter((c) => {
       if (c.number >= difficulty) {
         return true;
@@ -30,7 +30,7 @@ export default function Courses({searchString}:{searchString: string}) {
     return false
   })
 
-  //Display only the ones that show up in both
+  // Display only the ones that show up in both
   let filteredCourses = displayedCourses.filter(value => filteredCoursesByDiff.includes(value));
 
   return (
@@ -52,7 +52,6 @@ export default function Courses({searchString}:{searchString: string}) {
               number={c.number}
               title={c.title}
               description={c.description}
-              // prereqs={c.prereqs}
             />
           ))}
         </div>

@@ -3,6 +3,7 @@ import { AppContext } from "./AppRoot";
 
 export default function InfoTable({course}: {course:any}) {
 
+  // Local state variables to store the data fetched from the API
   const [message, setMessage] = useState('Loading data...');
   const [courseQuality, setCourseQuality] = useState(0);
   const [difficulty, setDifficulty] = useState(0);
@@ -12,7 +13,7 @@ export default function InfoTable({course}: {course:any}) {
 
   const url = `/api/base/${year+semester}/courses/${course.dept}-${course.number}/`;
 
-
+// Calling the async function in the UseEffect hook to fetch the data and set it to the states maintained in AppRoot
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(`/api/base/${year + semester}/courses/${course.dept}-${course.number}/`);
@@ -26,6 +27,7 @@ export default function InfoTable({course}: {course:any}) {
     fetchData();
   }, [course, semester, url, year]);
 
+  // Rendering the table with the course information
   return (
     <div className="overflow-hidden bg-white shadow sm:rounded-lg">
       <div className="px-4 py-5 sm:px-6">

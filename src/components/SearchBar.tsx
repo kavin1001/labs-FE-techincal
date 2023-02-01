@@ -1,10 +1,8 @@
 import React from 'react'
 
+// The search bar component that is used in the nav bar
 export default function Search({updateSearchQuery}:{updateSearchQuery: (newSearchString:string) => any}) {
-
-    // Represents search/filter area, Handles searchbar functionality
-    // NOT responsible for filtering results, Courses.tsx does that
-
+    // Function that updates the search query when the user types in the search bar
     function handleChange(event: React.FormEvent<HTMLInputElement>) {
         updateSearchQuery(event.currentTarget.value)
     }

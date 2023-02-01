@@ -3,7 +3,7 @@ import { AppContext } from './AppRoot';
 
 export default function CourseTile({course}: {course: any}) {
 
-    //Component to display a course in the cart
+    // Tile that we see in the cart
     const {removeItemFromCart} = useContext(AppContext);
     const {title, number, dept} = course
 

@@ -3,9 +3,9 @@ import CheckoutTile from './CheckoutTile';
 
 export default function Reciept() {
 
-  //The checkout page that gets displayed at the /checkout endpoint
+  // The checkout page
 
-  // Using hooks to navigate away from this page, useLocation helps me pass data between pages at different routes
+  // Using use location to get the cart state from the page in which we called the button to navigate to this page
   const location = useLocation();
   const courses = location.state['cart'];
 

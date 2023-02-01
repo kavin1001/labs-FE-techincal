@@ -11,14 +11,17 @@ export default function Cart({courses}: {courses: any[]}) {
   const navigate = useNavigate()
 
 
+  // Function to handle the checkout button using useNavigate
   function handleClick() {
     navigate('/checkout', {state: {cart}})
   }
 
+  // The rendering for the cart
   return (
     <Transition.Root show={openCart} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={showCart}>
         <Transition.Child
+        // Defining the transition animation for the background
           as={Fragment}
           enter="ease-in-out duration-500"
           enterFrom="opacity-0"
@@ -34,6 +37,7 @@ export default function Cart({courses}: {courses: any[]}) {
           <div className="absolute inset-0 overflow-hidden">
             <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
               <Transition.Child
+              // Defining the transition time and locations for the cart
                 as={Fragment}
                 enter="transform transition ease-in-out duration-500 sm:duration-700"
                 enterFrom="translate-x-full"

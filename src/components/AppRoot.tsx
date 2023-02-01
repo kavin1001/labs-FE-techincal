@@ -24,20 +24,12 @@ export default function AppRoot() {
 
     // Functions to update the states
 
-    function chooseCourse(course: number) {
-        setCourse(course);
-    }
-
-    // Everytime the search query changes, this function will be called
-    function updateSearchQuery(query: string) {
-        setSearchQuery(query);
-    }
-
     // Removes a course from the cart
     function removeItemFromCart(id: number) {
         setCart(cart.filter(item => item.number !== id));
     }
 
+    // Adds a course to the cart
     function addItemToCart(id: number) {
         const newCourse = courses.find(c => c.number === id)
         if (!cart.includes(newCourse)) {
@@ -45,14 +37,27 @@ export default function AppRoot() {
         }
     }
 
+    // Shows or hides the cart
     function showCart(state: boolean) {
         setOpenCart(state);
     }
 
+    // Sets the course to the state
+    function chooseCourse(course: number) {
+        setCourse(course);
+    }
+
+    // Shows or hides the popup
     function showPopup(state: boolean) {
         setOpenPopup(state);
     }
 
+    // Everytime the search query changes, this function will be called
+    function updateSearchQuery(query: string) {
+        setSearchQuery(query);
+    }
+
+    // Since the API needs A,B, or C instead of the actual semester
     function updateSemester(sem: string) {
         if(sem === "Spring") {
             setSemester("A");
